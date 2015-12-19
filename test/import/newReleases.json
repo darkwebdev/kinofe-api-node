@@ -1,0 +1,356 @@
+{
+  "total": 50,
+  "movies": [
+    {
+      "id": "771323153",
+      "title": "Fantastic Four",
+      "year": 2015,
+      "mpaa_rating": "PG-13",
+      "runtime": 100,
+      "critics_consensus": "",
+      "release_dates": {
+        "theater": "2015-08-07",
+        "dvd": "2015-12-15"
+      },
+      "ratings": {
+        "critics_rating": "Rotten",
+        "critics_score": 10,
+        "audience_rating": "Spilled",
+        "audience_score": 20
+      },
+      "synopsis": "FANTASTIC FOUR, a contemporary re-imagining of Marvel's original and longest-running superhero team, centers on four young outsiders who teleport to an alternate and dangerous universe, which alters their physical form in shocking ways. Their lives irrevocably upended, the team must learn to harness their daunting new abilities and work together to save Earth from a former friend turned enemy. (C) Fox",
+      "posters": {
+        "thumbnail": "http://resizing.flixster.com/yAThzK8nQejRcc_f-TP3Yp7KiD8=/54x80/dkpu1ddg7pbsk.cloudfront.net/movie/11/19/11/11191141_ori.jpg",
+        "profile": "http://resizing.flixster.com/yAThzK8nQejRcc_f-TP3Yp7KiD8=/54x80/dkpu1ddg7pbsk.cloudfront.net/movie/11/19/11/11191141_ori.jpg",
+        "detailed": "http://resizing.flixster.com/yAThzK8nQejRcc_f-TP3Yp7KiD8=/54x80/dkpu1ddg7pbsk.cloudfront.net/movie/11/19/11/11191141_ori.jpg",
+        "original": "http://resizing.flixster.com/yAThzK8nQejRcc_f-TP3Yp7KiD8=/54x80/dkpu1ddg7pbsk.cloudfront.net/movie/11/19/11/11191141_ori.jpg"
+      },
+      "abridged_cast": [
+        {
+          "name": "Michael B. Jordan",
+          "id": "770683889",
+          "characters": [
+            "Johnny Storm/The Human Torch"
+          ]
+        },
+        {
+          "name": "Kate Mara",
+          "id": "414200709",
+          "characters": [
+            "Sue Storm/The Invisible Woman"
+          ]
+        },
+        {
+          "name": "Miles Teller",
+          "id": "771077409",
+          "characters": [
+            "Reed Richards/Mr. Fantastic"
+          ]
+        },
+        {
+          "name": "Jamie Bell",
+          "id": "162653082",
+          "characters": [
+            "Ben Grimm/The Thing"
+          ]
+        },
+        {
+          "name": "Toby Kebbell",
+          "id": "341816021",
+          "characters": [
+            "Victor Domashev/Doom"
+          ]
+        }
+      ],
+      "alternate_ids": {
+        "imdb": "1502712"
+      },
+      "links": {
+        "self": "http://api.rottentomatoes.com/api/public/v1.0/movies/771323153.json",
+        "alternate": "http://www.rottentomatoes.com/m/fantastic_four_2015/",
+        "cast": "http://api.rottentomatoes.com/api/public/v1.0/movies/771323153/cast.json",
+        "reviews": "http://api.rottentomatoes.com/api/public/v1.0/movies/771323153/reviews.json",
+        "similar": "http://api.rottentomatoes.com/api/public/v1.0/movies/771323153/similar.json"
+      }
+    },
+    {
+      "id": "771357161",
+      "title": "Mission: Impossible Rogue Nation",
+      "year": 2015,
+      "mpaa_rating": "PG-13",
+      "runtime": 131,
+      "critics_consensus": "",
+      "release_dates": {
+        "theater": "2015-07-31",
+        "dvd": "2015-12-15"
+      },
+      "ratings": {
+        "critics_rating": "Certified Fresh",
+        "critics_score": 93,
+        "audience_rating": "Upright",
+        "audience_score": 89
+      },
+      "synopsis": "With the IMF disbanded, and Ethan (Tom Cruise) out in the cold, the team now faces off against a network of highly skilled special agents, the Syndicate. These highly trained operatives are hellbent on creating a new world order through an escalating series of terrorist attacks. Ethan gathers his team and joins forces with disavowed British agent Ilsa Faust (Rebecca Ferguson), who may or may not be a member of this rogue nation, as the group faces their most impossible mission yet.",
+      "posters": {
+        "thumbnail": "http://resizing.flixster.com/gbCU2qc5Edq9j-eJWBL9VN0BmZA=/52x81/dkpu1ddg7pbsk.cloudfront.net/movie/11/19/07/11190760_ori.jpg",
+        "profile": "http://resizing.flixster.com/gbCU2qc5Edq9j-eJWBL9VN0BmZA=/52x81/dkpu1ddg7pbsk.cloudfront.net/movie/11/19/07/11190760_ori.jpg",
+        "detailed": "http://resizing.flixster.com/gbCU2qc5Edq9j-eJWBL9VN0BmZA=/52x81/dkpu1ddg7pbsk.cloudfront.net/movie/11/19/07/11190760_ori.jpg",
+        "original": "http://resizing.flixster.com/gbCU2qc5Edq9j-eJWBL9VN0BmZA=/52x81/dkpu1ddg7pbsk.cloudfront.net/movie/11/19/07/11190760_ori.jpg"
+      },
+      "abridged_cast": [
+        {
+          "name": "Tom Cruise",
+          "id": "162652763",
+          "characters": [
+            "Ethan Hunt"
+          ]
+        },
+        {
+          "name": "Jeremy Renner",
+          "id": "309973652",
+          "characters": [
+            "William Brandt"
+          ]
+        },
+        {
+          "name": "Ving Rhames",
+          "id": "162693220",
+          "characters": [
+            "Luther Strickell"
+          ]
+        },
+        {
+          "name": "Simon Pegg",
+          "id": "162684057",
+          "characters": [
+            "Benji"
+          ]
+        },
+        {
+          "name": "Rebecca Ferguson",
+          "id": "771471104",
+          "characters": [
+            "Ilsa Faust"
+          ]
+        }
+      ],
+      "alternate_ids": {
+        "imdb": "2381249"
+      },
+      "links": {
+        "self": "http://api.rottentomatoes.com/api/public/v1.0/movies/771357161.json",
+        "alternate": "http://www.rottentomatoes.com/m/mission_impossible_rogue_nation/",
+        "cast": "http://api.rottentomatoes.com/api/public/v1.0/movies/771357161/cast.json",
+        "reviews": "http://api.rottentomatoes.com/api/public/v1.0/movies/771357161/reviews.json",
+        "similar": "http://api.rottentomatoes.com/api/public/v1.0/movies/771357161/similar.json"
+      }
+    },
+    {
+      "id": "771390260",
+      "title": "Maze Runner: The Scorch Trials",
+      "year": 2015,
+      "mpaa_rating": "PG-13",
+      "runtime": 120,
+      "critics_consensus": "",
+      "release_dates": {
+        "theater": "2015-09-18",
+        "dvd": "2015-12-15"
+      },
+      "ratings": {
+        "critics_rating": "Rotten",
+        "critics_score": 49,
+        "audience_rating": "Upright",
+        "audience_score": 60
+      },
+      "synopsis": "In this next chapter of the epic \"Maze Runner\" saga, Thomas (Dylan O'Brien) and his fellow Gladers face their greatest challenge yet: searching for clues about the mysterious and powerful organization known as WCKD. Their journey takes them to the Scorch, a desolate landscape filled with unimaginable obstacles. Teaming up with resistance fighters, the Gladers take on WCKD's vastly superior forces and uncover its shocking plans for them all. (C) Fox",
+      "posters": {
+        "thumbnail": "http://resizing.flixster.com/ZV2A22qRMm64yWa2RcMTN3wED-8=/54x77/dkpu1ddg7pbsk.cloudfront.net/movie/11/19/13/11191378_ori.jpg",
+        "profile": "http://resizing.flixster.com/ZV2A22qRMm64yWa2RcMTN3wED-8=/54x77/dkpu1ddg7pbsk.cloudfront.net/movie/11/19/13/11191378_ori.jpg",
+        "detailed": "http://resizing.flixster.com/ZV2A22qRMm64yWa2RcMTN3wED-8=/54x77/dkpu1ddg7pbsk.cloudfront.net/movie/11/19/13/11191378_ori.jpg",
+        "original": "http://resizing.flixster.com/ZV2A22qRMm64yWa2RcMTN3wED-8=/54x77/dkpu1ddg7pbsk.cloudfront.net/movie/11/19/13/11191378_ori.jpg"
+      },
+      "abridged_cast": [
+        {
+          "name": "Dylan O'Brien",
+          "id": "771375271",
+          "characters": [
+            "Thomas"
+          ]
+        },
+        {
+          "name": "Thomas Sangster",
+          "id": "162710614",
+          "characters": [
+            "Newt"
+          ]
+        },
+        {
+          "name": "Kaya Scodelario",
+          "id": "770803276",
+          "characters": [
+            "Teresa"
+          ]
+        },
+        {
+          "name": "Aidan Gillen",
+          "id": "364651634",
+          "characters": [
+            "Janson"
+          ]
+        },
+        {
+          "name": "Ki Hong Lee",
+          "id": "771376026",
+          "characters": [
+            "Minho"
+          ]
+        }
+      ],
+      "alternate_ids": {
+        "imdb": "4046784"
+      },
+      "links": {
+        "self": "http://api.rottentomatoes.com/api/public/v1.0/movies/771390260.json",
+        "alternate": "http://www.rottentomatoes.com/m/maze_runner_the_scorch_trials/",
+        "cast": "http://api.rottentomatoes.com/api/public/v1.0/movies/771390260/cast.json",
+        "reviews": "http://api.rottentomatoes.com/api/public/v1.0/movies/771390260/reviews.json",
+        "similar": "http://api.rottentomatoes.com/api/public/v1.0/movies/771390260/similar.json"
+      }
+    },
+    {
+      "id": "771362652",
+      "title": "Ted 2",
+      "year": 2015,
+      "mpaa_rating": "R",
+      "runtime": 120,
+      "critics_consensus": "",
+      "release_dates": {
+        "theater": "2015-06-26",
+        "dvd": "2015-12-15"
+      },
+      "ratings": {
+        "critics_rating": "Rotten",
+        "critics_score": 46,
+        "audience_rating": "Spilled",
+        "audience_score": 56
+      },
+      "synopsis": "Newlywed couple Ted and Tami-Lynn want to have a baby, but in order to qualify to be a parent, Ted will have to prove he's a person in a court of law.",
+      "posters": {
+        "thumbnail": "http://resizing.flixster.com/dbx-IfAXoDyU_D05rr9Qk_p9vAI=/51x81/dkpu1ddg7pbsk.cloudfront.net/movie/11/18/96/11189697_ori.jpg",
+        "profile": "http://resizing.flixster.com/dbx-IfAXoDyU_D05rr9Qk_p9vAI=/51x81/dkpu1ddg7pbsk.cloudfront.net/movie/11/18/96/11189697_ori.jpg",
+        "detailed": "http://resizing.flixster.com/dbx-IfAXoDyU_D05rr9Qk_p9vAI=/51x81/dkpu1ddg7pbsk.cloudfront.net/movie/11/18/96/11189697_ori.jpg",
+        "original": "http://resizing.flixster.com/dbx-IfAXoDyU_D05rr9Qk_p9vAI=/51x81/dkpu1ddg7pbsk.cloudfront.net/movie/11/18/96/11189697_ori.jpg"
+      },
+      "abridged_cast": [
+        {
+          "name": "Mark Wahlberg",
+          "id": "162653181",
+          "characters": [
+            "John Bennett"
+          ]
+        },
+        {
+          "name": "Seth MacFarlane",
+          "id": "364629414",
+          "characters": [
+            "Ted"
+          ]
+        },
+        {
+          "name": "Amanda Seyfried",
+          "id": "364614826",
+          "characters": [
+            "Samantha Jackson"
+          ]
+        },
+        {
+          "name": "Jessica Barth",
+          "id": "771046993",
+          "characters": [
+            "Tami-Lynn"
+          ]
+        },
+        {
+          "name": "Morgan Freeman",
+          "id": "162652224",
+          "characters": [
+            "Patrick Meighan"
+          ]
+        }
+      ],
+      "alternate_ids": {
+        "imdb": "2637276"
+      },
+      "links": {
+        "self": "http://api.rottentomatoes.com/api/public/v1.0/movies/771362652.json",
+        "alternate": "http://www.rottentomatoes.com/m/ted_2/",
+        "cast": "http://api.rottentomatoes.com/api/public/v1.0/movies/771362652/cast.json",
+        "reviews": "http://api.rottentomatoes.com/api/public/v1.0/movies/771362652/reviews.json",
+        "similar": "http://api.rottentomatoes.com/api/public/v1.0/movies/771362652/similar.json"
+      }
+    },
+    {
+      "id": "771416517",
+      "title": "He Named Me Malala",
+      "year": 2015,
+      "mpaa_rating": "PG-13",
+      "runtime": 87,
+      "critics_consensus": "",
+      "release_dates": {
+        "theater": "2015-10-02",
+        "dvd": "2015-12-15"
+      },
+      "ratings": {
+        "critics_rating": "Fresh",
+        "critics_score": 72,
+        "audience_rating": "Upright",
+        "audience_score": 70
+      },
+      "synopsis": "HE NAMED ME MALALA is an intimate portrait of Malala Yousafzai, who was wounded when Taliban gunmen opened fire on her and her friends' school bus in Pakistan's Swat Valley. The then 15-year-old teenager, who had been targeted for speaking out on behalf of girls' education in her region of Swat Valley in Pakistan, was shot in the head, sparking international media outrage. An educational activist in Pakistan, Yousafzai has since emerged as a leading campaigner for the rights of children worldwide and in December 2014, became the youngest-ever Nobel Peace Prize Laureate. (C) Fox Searchlight",
+      "posters": {
+        "thumbnail": "http://resizing.flixster.com/1EkN6agMTX2Q0sYuisNfA4y68V4=/54x77/dkpu1ddg7pbsk.cloudfront.net/movie/11/19/15/11191573_ori.jpg",
+        "profile": "http://resizing.flixster.com/1EkN6agMTX2Q0sYuisNfA4y68V4=/54x77/dkpu1ddg7pbsk.cloudfront.net/movie/11/19/15/11191573_ori.jpg",
+        "detailed": "http://resizing.flixster.com/1EkN6agMTX2Q0sYuisNfA4y68V4=/54x77/dkpu1ddg7pbsk.cloudfront.net/movie/11/19/15/11191573_ori.jpg",
+        "original": "http://resizing.flixster.com/1EkN6agMTX2Q0sYuisNfA4y68V4=/54x77/dkpu1ddg7pbsk.cloudfront.net/movie/11/19/15/11191573_ori.jpg"
+      },
+      "abridged_cast": [
+        {
+          "name": "Ziauddin Yousafzai",
+          "id": "771774045"
+        },
+        {
+          "name": "Toor Pekai Yousafzai",
+          "id": "771723954"
+        },
+        {
+          "name": "ToorPekai Yousafzai",
+          "id": "771774046"
+        },
+        {
+          "name": "Khushal Yousafzai",
+          "id": "771774047"
+        },
+        {
+          "name": "Atal Yousafzai",
+          "id": "771774048"
+        }
+      ],
+      "alternate_ids": {
+        "imdb": "3065132"
+      },
+      "links": {
+        "self": "http://api.rottentomatoes.com/api/public/v1.0/movies/771416517.json",
+        "alternate": "http://www.rottentomatoes.com/m/he_named_me_malala/",
+        "cast": "http://api.rottentomatoes.com/api/public/v1.0/movies/771416517/cast.json",
+        "reviews": "http://api.rottentomatoes.com/api/public/v1.0/movies/771416517/reviews.json",
+        "similar": "http://api.rottentomatoes.com/api/public/v1.0/movies/771416517/similar.json"
+      }
+    }
+  ],
+  "links": {
+    "self": "http://api.rottentomatoes.com/api/public/v1.0/lists/dvds/new_releases.json?page_limit=5&country=us&page=1",
+    "next": "http://api.rottentomatoes.com/api/public/v1.0/lists/dvds/new_releases.json?page_limit=5&country=us&page=2",
+    "alternate": "http://www.rottentomatoes.com/dvd/new-releases"
+  },
+  "link_template": "http://api.rottentomatoes.com/api/public/v1.0/lists/dvds/new_releases.json?page_limit={results-per-page}&page={page-number}&country={country-code}"
+}
