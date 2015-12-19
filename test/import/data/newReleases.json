@@ -295,7 +295,6 @@
       "year": 2015,
       "mpaa_rating": "PG-13",
       "runtime": 87,
-      "critics_consensus": "",
       "release_dates": {
         "theater": "2015-10-02",
         "dvd": "2015-12-15"
@@ -335,9 +334,6 @@
           "id": "771774048"
         }
       ],
-      "alternate_ids": {
-        "imdb": "3065132"
-      },
       "links": {
         "self": "http://api.rottentomatoes.com/api/public/v1.0/movies/771416517.json",
         "alternate": "http://www.rottentomatoes.com/m/he_named_me_malala/",

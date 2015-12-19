@@ -1,17 +1,17 @@
 const expect = require('chai').expect;
 
 const { convertListToSchema, convertDetailsToSchema } = require('../../app/import/converters');
-const newReleases = require('./newReleases.json');
-const movieDetails = require('./movieDetails.json');
-const convertedReleases = require('./convertedReleases');
-const convertedDetails = require('./convertedDetails');
+const newReleases = require('./data/newReleases.json');
+const movieDetails = require('./data/movieDetails.json');
+const convertedReleases = require('./data/convertedReleases');
+const convertedDetails = require('./data/convertedDetails');
 
 const releasesProvider = {
     moviesProp: 'movies',
     converters: {
         title: ({ title }) => title,
         year: ({ year }) => year,
-        imdbId: ({ alternate_ids }) => 'tt'+alternate_ids.imdb,
+        imdbId: ({ alternate_ids }) => alternate_ids ? 'tt'+alternate_ids.imdb : null,
         poster: ({ posters }) => ({ small: posters.thumbnail }),
         desc: ({ synopsis }) => synopsis,
         runtime: ({ runtime }) => runtime,

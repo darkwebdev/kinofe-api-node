@@ -43,7 +43,7 @@ module.exports = [
         title: 'He Named Me Malala',
         year: 2015,
         desc: 'HE NAMED ME MALALA is an intimate portrait of Malala Yousafzai, who was wounded when Taliban gunmen opened fire on her and her friends\' school bus in Pakistan\'s Swat Valley. The then 15-year-old teenager, who had been targeted for speaking out on behalf of girls\' education in her region of Swat Valley in Pakistan, was shot in the head, sparking international media outrage. An educational activist in Pakistan, Yousafzai has since emerged as a leading campaigner for the rights of children worldwide and in December 2014, became the youngest-ever Nobel Peace Prize Laureate. (C) Fox Searchlight',
-        imdbId: 'tt3065132',
+        imdbId: null,
         poster: {
             small: 'http://resizing.flixster.com/1EkN6agMTX2Q0sYuisNfA4y68V4=/54x77/dkpu1ddg7pbsk.cloudfront.net/movie/11/19/15/11191573_ori.jpg'
         },
