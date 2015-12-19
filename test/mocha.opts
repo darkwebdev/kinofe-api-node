@@ -1,0 +1,4 @@
+--ui bdd
+--check-leaks
+--reporter nyan
+--recursive
