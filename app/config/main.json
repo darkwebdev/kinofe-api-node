@@ -1,5 +1,5 @@
 {
   "db": "mongodb://localhost/kinofe",
   "newReleasesProvider": "rt",
-  "detailsProvider": "myapi",
+  "detailsProvider": "myapi"
 }
