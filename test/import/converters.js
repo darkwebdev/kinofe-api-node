@@ -1,8 +1,8 @@
-const expect = require('chai').expect;
+const { expect } = require('chai');
 
 const { convertListToSchema, convertDetailsToSchema } = require('../../app/import/converters');
-const newReleases = require('./data/newReleases.json');
-const movieDetails = require('./data/movieDetails.json');
+const newReleases = require('./data/newReleases');
+const movieDetails = require('./data/movieDetails');
 const convertedReleases = require('./data/convertedReleases');
 const convertedDetails = require('./data/convertedDetails');
 
@@ -22,7 +22,7 @@ const detailsProvider = {
     movieProp: 'data.movies.0',
     converters: {
         votes: ({ votes }) => Number(votes.replace(',', '')),
-        rating: ({ rating }) => Number(rating),
+        rating: ({ rating }) => Number(Number(rating).toFixed(2)),
         poster: ({ urlPoster }) => ({ normal: urlPoster }),
         genres: ({ genres }) => genres,
         directors: ({ directors=[] }) =>
