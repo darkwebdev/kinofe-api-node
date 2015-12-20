@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-const Schema = mongoose.Schema({
+const schema = mongoose.Schema({
     imdbId: { type: String, unique: true },
     title: String,
     rating: Number,
@@ -27,4 +27,4 @@ const Schema = mongoose.Schema({
     updated_at: { type: Date, default: Date.now },
 });
 
-module.exports = mongoose.model('Movie', Schema);
+module.exports = mongoose.model('Movie', schema);
