@@ -33,7 +33,7 @@ const createMovie = (data) => {
     return (new Movie(data))
         .save()
         .then((savedMovie) => console.log('Saved movie', savedMovie.title))
-        .catch(ex => console.error('Error saving movie:', ex));
+        .catch(ex => console.error('Error saving movie:', data.title, ex));
 };
 
 Promise.all([
