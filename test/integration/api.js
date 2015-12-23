@@ -3,6 +3,7 @@ const fetch = require('node-fetch');
 
 const chai = require('chai');
 const expect = chai.expect;
+chai.use(require('chai-things'));
 chai.use(require('chai-as-promised'));
 
 const mongoose = require('mongoose');
@@ -153,8 +154,9 @@ describe('API', () => {
                 const json = fetch(url).then(res => res.json());
                 return json.then(movies => {
                     const genres = _.chain(movies).pluck('genres').flatten().unique().value();
+                    const unexpectedGenres = genresExclude.length ? genresExclude : [ 'nonexisting' ];
 
-                    return expect(_.intersection(genres, genresExclude)).to.be.empty;
+                    return expect(genres).not.to.include.any.members(unexpectedGenres);
                 });
             })
         );
