@@ -16,7 +16,8 @@ const startHttpServer = require(appPath + '/http');
 const api = require(appPath + '/api');
 const Movie = require(appPath + '/models/Movie');
 const movieData = require('./data/movie');
-const fakeRatings = [ 4, 6, 9 ];
+const fakeRatings = [ 4, 6, 9, ];
+const fakeGenres = [ 'drama', 'comedy', 'documentary', ];
 
 const createFakeMovies = (dataArr) => {
     const newMoviesData = dataArr.map(data =>
@@ -36,80 +37,157 @@ describe('API', () => {
         startHttpServer(api, config.http),
     ]));
 
-    beforeEach(() => Movie
-        .remove({})
-        .then(createFakeMovies(fakeRatings.map(rating => ({ rating, }))))
-    );
+    context('Limit option', () => {
+        beforeEach(() => Movie
+            .remove({})
+            .then(createFakeMovies(fakeRatings.map(rating => ({ rating, }))))
+        );
 
-    [
-        {
-            limit: null,
-            expectedAmount: fakeRatings.length,
-        },
-        {
-            limit: '',
-            expectedAmount: fakeRatings.length,
-        },
-        {
-            limit: 2,
-            expectedAmount: 2,
-        },
-        {
-            limit: 4,
-            expectedAmount: fakeRatings.length,
-        },
-    ].map(({ limit, expectedAmount, }) =>
-        it('should limit ' + fakeRatings.length + ' movies to ' + limit, () => {
-            const url = apiUrl + '/movies' + (limit !== null ? '?limit=' + limit : '');
+        [
+            {
+                limit: null,
+                expectedAmount: fakeRatings.length,
+            },
+            {
+                limit: '',
+                expectedAmount: fakeRatings.length,
+            },
+            {
+                limit: 2,
+                expectedAmount: 2,
+            },
+            {
+                limit: 4,
+                expectedAmount: fakeRatings.length,
+            },
+        ].map(({ limit, expectedAmount, }) =>
+            it('should return ' + limit + '/' + fakeRatings.length + ' movies', () => {
+                const url = apiUrl + '/movies' + (limit !== null ? '?limit=' + limit : '');
 
-            const json = fetch(url).then(res => res.json());
-            return expect(json).to.eventually.be.of.length(expectedAmount);
-        })
-    );
+                const json = fetch(url).then(res => res.json());
+                return expect(json).to.eventually.be.of.length(expectedAmount);
+            })
+        );
+    });
 
-    [
-        {
-            sortBy: 'rating',
-            expectedSequence: fakeRatings,
-        },
-        {
-            sortBy: '-rating',
-            expectedSequence: fakeRatings.slice(0).reverse(),
-        },
-    ].map(({ sortBy, expectedSequence, }) =>
-        it('should sort by ' + sortBy, () => {
-            const url = apiUrl + '/movies?sort=' + sortBy;
+    context('Sort option', () => {
+        beforeEach(() => Movie
+            .remove({})
+            .then(createFakeMovies(fakeRatings.map(rating => ({ rating, }))))
+        );
 
-            const json = fetch(url).then(res => res.json());
-            return json.then(movies =>
-                expect(_.pluck(movies, 'rating')).to.deep.equal(expectedSequence))
-        })
-    );
+        [
+            {
+                sortBy: 'rating',
+                expectedSeq: fakeRatings,
+            },
+            {
+                sortBy: '-rating',
+                expectedSeq: fakeRatings.slice(0).reverse(),
+            },
+        ].map(({ sortBy, expectedSeq, }) =>
+            it('should sort movies by ' + sortBy, () => {
+                const url = apiUrl + '/movies?sort=' + sortBy;
 
-    [
-        {
-            skip: 0,
-            expectedAmount: fakeRatings.length
-        },
-        {
-            skip: 1,
-            expectedAmount: fakeRatings.length-1
-        },
-        {
-            skip: fakeRatings.length,
-            expectedAmount: 0
-        },
-        {
-            skip: fakeRatings.length+1,
-            expectedAmount: 0
-        },
-    ].map(({ skip, expectedAmount, }) =>
-        it('should skip ' + skip + '/' + fakeRatings.length + ' movies', () => {
-            const url = apiUrl + '/movies?skip=' + skip;
+                const json = fetch(url).then(res => res.json());
+                return json.then(movies =>
+                    expect(_.pluck(movies, 'rating')).to.deep.equal(expectedSeq))
+            })
+        );
+    });
 
-            const json = fetch(url).then(res => res.json());
-            return json.then(movies =>
-                expect(json).to.eventually.be.of.length(expectedAmount))
-        })
-    );
+    context('Skip option', () => {
+        beforeEach(() => Movie
+            .remove({})
+            .then(createFakeMovies(fakeRatings.map(rating => ({ rating, }))))
+        );
+
+        [
+            {
+                skip: 0,
+                expectedAmount: fakeRatings.length
+            },
+            {
+                skip: 1,
+                expectedAmount: fakeRatings.length - 1
+            },
+            {
+                skip: fakeRatings.length,
+                expectedAmount: 0
+            },
+            {
+                skip: fakeRatings.length + 1,
+                expectedAmount: 0
+            },
+        ].map(({ skip, expectedAmount, }) =>
+            it('should return ' + expectedAmount + '/' + fakeRatings.length + ' movies', () => {
+                const url = apiUrl + '/movies?skip=' + skip;
+
+                const json = fetch(url).then(res => res.json());
+                return json.then(movies =>
+                    expect(json).to.eventually.be.of.length(expectedAmount))
+            })
+        );
+    });
+
+    context('Genres-exclude option', () => {
+        beforeEach(() => Movie
+            .remove({})
+            .then(createFakeMovies(fakeGenres.map(genres => ({ genres, }))))
+        );
+
+        [
+            {
+                genresExclude: []
+            },
+            {
+                genresExclude: [ 'drama', ]
+            },
+            {
+                genresExclude: [ 'drama', 'documentary', 'comedy', ]
+            },
+        ].map(({ genresExclude, }) =>
+            it('should ignore ' + genresExclude + ' in movies', () => {
+                const url = apiUrl + '/movies?genresIgnore=' + genresExclude.join(',');
+
+                const json = fetch(url).then(res => res.json());
+                return json.then(movies => {
+                    const genres = _.chain(movies).pluck('genres').flatten().unique().value();
+
+                    return expect(_.intersection(genres, genresExclude)).to.be.empty;
+                });
+            })
+        );
+    });
+
+    context('Genres-only option', () => {
+        beforeEach(() => Movie
+            .remove({})
+            .then(createFakeMovies(fakeGenres.map(genres => ({ genres, }))))
+        );
+
+        [
+            {
+                genresOnly: [],
+            },
+            {
+                genresOnly: [ 'drama', ],
+            },
+            {
+                genresOnly: [ 'comedy', 'documentary', 'drama', ],
+            },
+        ].map(({ genresOnly, }) =>
+            it('should return only ' + genresOnly + ' in movies', () => {
+                const url = apiUrl + '/movies?genresOnly=' + genresOnly.join(',');
+
+                const json = fetch(url).then(res => res.json());
+                return json.then(movies => {
+                    const genres = _.chain(movies).pluck('genres').flatten().unique().value();
+                    const expectedGenres = genresOnly.length ? genresOnly : genres;
+
+                    return expect(expectedGenres).to.contain.members(genres);
+                });
+            })
+        );
+    });
 });
