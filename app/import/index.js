@@ -1,45 +1,46 @@
-const _ = require('lodash');
+const argv = require('yargs').argv;
 
 const config = require('../config/main.json');
 const connectDb = require('../db');
 const Movie = require('../models/Movie');
 const { fetchNewReleases, fetchDetails } = require('./fetch');
 
-const checkIfMovieExists = (imdbId) => {
-    return Movie.findOne({ imdbId }).then(movie => {
+const checkIfMovieExists = ({ imdbId, title, year, }) => {
+    return Movie.findOne(imdbId ? { imdbId, } : { title, year, }).then(movie => {
         return Boolean(movie);
     });
 };
 
 const createMovieIfNotExists = (movie) => {
     if (!movie.imdbId) {
-        console.log('Movie has no IMDB id, skipping:', movie.title)
-    } else {
-        checkIfMovieExists(movie.imdbId)
-            .then(doesExist => {
-                if (doesExist) {
-                    console.log('Movie exists, skipping: [' + movie.imdbId + '] ' + movie.title)
-                } else {
-                    fetchDetails(movie.imdbId)
-                        .then(movieDetails =>
-                            createMovie(_.merge({}, movie, movieDetails)))
-                        .catch(ex => console.error('Error fetching', ex))
-                }
-            })
-            .catch(err => console.error(err))
+        console.warn('Movie has no IMDB id, using title/year "' + movie.title + '", ' + movie.year)
     }
+    checkIfMovieExists(movie)
+        .then(doesExist => {
+            if (doesExist) {
+                console.warn('Movie exists, skipping: ' + movie.imdbId + ' "' + movie.title + '", ' + movie.year)
+            } else {
+                return fetchDetails(movie)
+                    .then(movieDetails => {
+                        if (movieDetails)
+                            createMovie(Object.assign({}, movie, movieDetails))
+                    })
+                    .catch(ex => console.error('Error fetching', movie.title, ex))
+            }
+        })
+        .catch(err => console.error(err))
 };
 
 const createMovie = (data) => {
     return (new Movie(data))
         .save()
-        .then((savedMovie) => console.log('Saved movie', savedMovie.title))
+        .then((savedMovie) => console.log('Saved movie: "' + savedMovie.title + '", ' + savedMovie.year))
         .catch(ex => console.error('Error saving movie:', data.title, ex));
 };
 
 Promise.all([
     connectDb(config.db),
-    fetchNewReleases()
+    fetchNewReleases(Number(argv.page))
 ]).then(([, movies]) => {
     movies.map(createMovieIfNotExists);
 });
