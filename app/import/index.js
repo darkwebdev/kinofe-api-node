@@ -1,6 +1,7 @@
 const _ = require('lodash');
 
-const dbConnection = require('../db');
+const config = require('../config/main.json');
+const connectDb = require('../db');
 const Movie = require('../models/Movie');
 const { fetchNewReleases, fetchDetails } = require('./fetch');
 
@@ -37,7 +38,7 @@ const createMovie = (data) => {
 };
 
 Promise.all([
-    dbConnection,
+    connectDb(config.db),
     fetchNewReleases()
 ]).then(([, movies]) => {
     movies.map(createMovieIfNotExists);
