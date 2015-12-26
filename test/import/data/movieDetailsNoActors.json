@@ -1,0 +1,65 @@
+{
+  "data": {
+    "movies": [
+      {
+        "title": "Fantastic Four",
+        "originalTitle": "",
+        "year": "2015",
+        "releaseDate": "20150807",
+        "directors": [
+          {
+            "name": "Josh Trank",
+            "nameId": "nm2503633"
+          }
+        ],
+        "writers": [
+          {
+            "name": "Jeremy Slater",
+            "nameId": "nm2916300"
+          },
+          {
+            "name": "Simon Kinberg",
+            "nameId": "nm1334526"
+          }
+        ],
+        "runtime": [
+          "100 min"
+        ],
+        "urlPoster": "http://ia.media-imdb.com/images/G/01/imdb/images/nopicture/32x44/name-2138558783._CB379389446_.png",
+        "countries": [
+          "USA",
+          "Germany",
+          "UK",
+          "Canada"
+        ],
+        "languages": [
+          "English"
+        ],
+        "genres": [
+          "Action",
+          "Adventure",
+          "Sci-Fi"
+        ],
+        "plot": "FANTASTIC FOUR, a contemporary re-imagining of Marvel's original and longest-running superhero team, centers on four young outsiders who teleport to an alternate and dangerous universe, which alters their physical form in shocking ways. Their lives irrevocably upended, the team must learn to harness their daunting new abilities and work together to save Earth from a former friend turned enemy.",
+        "simplePlot": "Four young outsiders teleport to an alternate and dangerous universe which alters their physical form in shocking ways. The four must learn to harness their new abilities and work together to save Earth from a former friend turned enemy.",
+        "idIMDB": "tt1502712",
+        "urlIMDB": "http://www.imdb.com/title/tt1502712",
+        "rating": "4.3",
+        "metascore": "",
+        "filmingLocations": [
+          "Raleigh Studios Baton Rouge",
+          "Celtic Media Centre",
+          "Baton Rouge",
+          "Louisiana",
+          "USA"
+        ],
+        "rated": "PG-13",
+        "votes": "78,531",
+        "type": "Movie"
+      }
+    ]
+  },
+  "about": {
+    "version": "2.6.0"
+  }
+}
