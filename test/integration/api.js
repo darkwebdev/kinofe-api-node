@@ -142,7 +142,7 @@ describe('API', () => {
                 genresExclude: []
             },
             {
-                genresExclude: [ 'drama', ]
+                genresExclude: [ 'documentary', ]
             },
             {
                 genresExclude: [ 'drama', 'documentary', 'comedy', ]
@@ -176,7 +176,10 @@ describe('API', () => {
                 genresOnly: [ 'drama', ],
             },
             {
-                genresOnly: [ 'comedy', 'documentary', 'drama', ],
+                genresOnly: [ 'comedy', 'Documentary', 'DRAMA', ],
+            },
+            {
+                genresOnly: [ 'comedy', 'Documentary', 'dramA', 'muSic', ],
             },
         ].map(({ genresOnly, }) =>
             it('should return only ' + genresOnly + ' in movies', () => {
@@ -184,12 +187,14 @@ describe('API', () => {
 
                 const json = fetch(url).then(res => res.json());
                 return json.then(movies => {
-                    const genres = _.chain(movies).pluck('genres').flatten().unique().value();
-                    const expectedGenres = genresOnly.length ? genresOnly : genres;
+                    const genres = _.chain(movies).pluck('genres').flatten().unique().sortBy().value();
+                    const expectedGenres = genresOnly.length ? _.sortBy(genresOnly) : genres;
 
-                    return expect(expectedGenres).to.contain.members(genres);
+                    console.log(url, genres, expectedGenres);
+                    return expect(expectedGenres).to.include.same.members(genres);
                 });
             })
         );
     });
 });
+

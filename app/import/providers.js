@@ -24,7 +24,7 @@ module.exports = {
             votes: ({ votes }) => votes ? Number(votes.replace(',', '')) : 0,
             rating: ({ rating }) => Number(rating),
             poster: ({ urlPoster }) => ({ normal: urlPoster }),
-            genres: ({ genres }) => genres,
+            genres: ({ genres }) => genres.map(genre => genre.toLowerCase()),
             directors: ({ directors=[] }) =>
                 directors.map(({ name, nameId }) => ({
                     name,

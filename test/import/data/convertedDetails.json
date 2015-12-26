@@ -98,9 +98,9 @@
     }
   ],
   "genres": [
-    "Action",
-    "Adventure",
-    "Sci-Fi"
+    "action",
+    "adventure",
+    "sci-fi"
   ],
   "poster": {
     "normal": "http://ia.media-imdb.com/images/G/01/imdb/images/nopicture/32x44/name-2138558783._CB379389446_.png"
