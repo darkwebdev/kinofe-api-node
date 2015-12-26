@@ -1,44 +1,14 @@
 const { expect } = require('chai');
 
 const { convertListToSchema, convertDetailsToSchema } = require('../../app/import/converters');
+const { rt, myapi } = require('../../app/import/providers');
 const newReleases = require('./data/newReleases');
 const movieDetails = require('./data/movieDetails');
 const convertedReleases = require('./data/convertedReleases');
 const convertedDetails = require('./data/convertedDetails');
 
-const releasesProvider = {
-    moviesProp: 'movies',
-    converters: {
-        title: ({ title }) => title,
-        year: ({ year }) => year,
-        imdbId: ({ alternate_ids }) => alternate_ids ? 'tt'+alternate_ids.imdb : null,
-        poster: ({ posters }) => ({ small: posters.thumbnail }),
-        desc: ({ synopsis }) => synopsis,
-        runtime: ({ runtime }) => runtime,
-    },
-};
-
-const detailsProvider = {
-    movieProp: 'data.movies.0',
-    converters: {
-        votes: ({ votes }) => Number(votes.replace(',', '')),
-        rating: ({ rating }) => Number(Number(rating).toFixed(2)),
-        poster: ({ urlPoster }) => ({ normal: urlPoster }),
-        genres: ({ genres }) => genres,
-        directors: ({ directors=[] }) =>
-            directors.map(({ name, nameId }) => ({
-                name,
-                imdbId: nameId,
-            })),
-        actors: ({ actors=[] }) =>
-            actors.map(({ actorName, urlPhoto, actorId, character, }) => ({
-                name: actorName,
-                photo: urlPhoto,
-                imdbId: actorId,
-                character,
-            })),
-    },
-};
+const releasesProvider = rt;
+const detailsProvider = myapi;
 
 describe('Converters', () => {
     it('should create proper data structures from New Releases JSON', () => {
