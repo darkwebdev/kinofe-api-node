@@ -24,8 +24,8 @@ const moviesHandler = (req, res, next) => {
         actors: _.pluck(actors.slice(0, 5), 'name'),
     });
 
-    const genresExcludeFilter = genresToExclude.length ? { genres: { $nin: genresToExclude } } : {};
-    const genresIncludeFilter = genresToInclude.length ? { genres: { $in: genresToInclude } } : {};
+    const genresExcludeFilter = genresToExclude.length ? { genres: { $nin: genresToExclude, }, } : {};
+    const genresIncludeFilter = genresToInclude.length ? { genres: { $in: genresToInclude, }, } : {};
 
     Movie
         .find(_.extend({},
@@ -36,7 +36,7 @@ const moviesHandler = (req, res, next) => {
         .limit(moviesToShow)
         .sort(moviesSorting)
         .then(movies => res.json(movies.map(pickMainProps)))
-        .catch(ex => next(ex))
+        .catch(ex => next(ex));
 };
 
 module.exports = router.get('/', moviesHandler);

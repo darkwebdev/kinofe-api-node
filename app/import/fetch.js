@@ -3,7 +3,7 @@ const fetch = require('node-fetch');
 const config = require('../config/main.json');
 const keys = require('../config/keys.json');
 const providers = require('./providers');
-const { convertListToSchema, convertDetailsToSchema } = require('./converters');
+const { convertListToSchema, convertDetailsToSchema, } = require('./converters');
 
 module.exports.fetchNewReleases = (page) => {
     const provider = providers[config.newReleasesProvider];
@@ -18,10 +18,10 @@ module.exports.fetchNewReleases = (page) => {
         .catch(ex => console.log('parsing failed', ex));
 };
 
-module.exports.fetchDetails = ({ imdbId, title, year }) => {
+module.exports.fetchDetails = ({ imdbId, title, year, }) => {
     const provider = providers[config.detailsProvider];
     const key = keys[config.detailsProvider];
-    const uri = provider.buildUri({ key, imdbId, title, year });
+    const uri = provider.buildUri({ key, imdbId, title, year, });
 
     console.log('Fetching movie details:', uri);
 

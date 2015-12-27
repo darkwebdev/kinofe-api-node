@@ -1,7 +1,7 @@
-const { expect } = require('chai');
+const { expect, } = require('chai');
 
-const { convertListToSchema, convertDetailsToSchema } = require('../../app/import/converters');
-const { rt, myapi } = require('../../app/import/providers');
+const { convertListToSchema, convertDetailsToSchema, } = require('../../app/import/converters');
+const { rt, myapi, } = require('../../app/import/providers');
 const newReleases = require('./data/newReleases');
 const movieDetails = require('./data/movieDetails');
 const movieDetailsNoDirectors = require('./data/movieDetailsNoDirectors');

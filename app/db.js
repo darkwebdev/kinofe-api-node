@@ -9,5 +9,5 @@ module.exports = (db) =>
             .on('error', (err) =>
                 reject(console.error('DB connection error:', err.message)))
             .once('open', () =>
-                resolve(console.log(db + ' connected')))
+                resolve(console.log(db + ' connected')));
     });

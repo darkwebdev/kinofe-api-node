@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 
 const schema = mongoose.Schema({
-    imdbId: { type: String, unique: true },
+    imdbId: { type: String, unique: true, },
     title: String,
     rating: Number,
     votes: Number,
@@ -24,7 +24,7 @@ const schema = mongoose.Schema({
         character: String,
         photo: String,
     }],
-    updated_at: { type: Date, default: Date.now },
+    updated_at: { type: Date, default: Date.now, },
 });
 
 module.exports = mongoose.model('Movie', schema);

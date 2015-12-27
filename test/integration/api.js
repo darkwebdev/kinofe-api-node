@@ -92,7 +92,7 @@ describe('API', () => {
 
                 const json = fetch(url).then(res => res.json());
                 return json.then(movies =>
-                    expect(_.pluck(movies, 'rating')).to.deep.equal(expectedSeq))
+                    expect(_.pluck(movies, 'rating')).to.deep.equal(expectedSeq));
             })
         );
     });
@@ -106,27 +106,26 @@ describe('API', () => {
         [
             {
                 skip: 0,
-                expectedAmount: fakeRatings.length
+                expectedAmount: fakeRatings.length,
             },
             {
                 skip: 1,
-                expectedAmount: fakeRatings.length - 1
+                expectedAmount: fakeRatings.length - 1,
             },
             {
                 skip: fakeRatings.length,
-                expectedAmount: 0
+                expectedAmount: 0,
             },
             {
                 skip: fakeRatings.length + 1,
-                expectedAmount: 0
+                expectedAmount: 0,
             },
         ].map(({ skip, expectedAmount, }) =>
             it('should return ' + expectedAmount + '/' + fakeRatings.length + ' movies', () => {
                 const url = apiUrl + '/movies?skip=' + skip;
 
                 const json = fetch(url).then(res => res.json());
-                return json.then(movies =>
-                    expect(json).to.eventually.be.of.length(expectedAmount))
+                return expect(json).to.eventually.be.of.length(expectedAmount);
             })
         );
     });
@@ -139,13 +138,13 @@ describe('API', () => {
 
         [
             {
-                genresExclude: []
+                genresExclude: [],
             },
             {
-                genresExclude: [ 'documentary', ]
+                genresExclude: [ 'documentary', ],
             },
             {
-                genresExclude: [ 'drama', 'documentary', 'comedy', ]
+                genresExclude: [ 'drama', 'documentary', 'comedy', ],
             },
         ].map(({ genresExclude, }) =>
             it('should ignore ' + genresExclude + ' in movies', () => {
@@ -154,7 +153,7 @@ describe('API', () => {
                 const json = fetch(url).then(res => res.json());
                 return json.then(movies => {
                     const genres = _.chain(movies).pluck('genres').flatten().unique().value();
-                    const unexpectedGenres = genresExclude.length ? genresExclude : [ 'nonexisting' ];
+                    const unexpectedGenres = genresExclude.length ? genresExclude : [ 'nonexisting', ];
 
                     return expect(genres).not.to.include.any.members(unexpectedGenres);
                 });
@@ -190,7 +189,6 @@ describe('API', () => {
                     const genres = _.chain(movies).pluck('genres').flatten().unique().sortBy().value();
                     const expectedGenres = genresOnly.length ? _.sortBy(genresOnly) : genres;
 
-                    console.log(url, genres, expectedGenres);
                     return expect(expectedGenres).to.include.same.members(genres);
                 });
             })

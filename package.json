@@ -7,6 +7,7 @@
     "start": "node --harmony_destructuring ./app/",
     "dev": "./node_modules/.bin/nodemon --harmony_destructuring ./app/",
     "test": "./node_modules/.bin/mocha --harmony_destructuring",
+    "lint": "./node_modules/.bin/eslint src test",
     "import": "node --harmony_destructuring ./app/import/",
     "import-next": "node --harmony_destructuring ./app/import/ --page=2"
   },
@@ -25,6 +26,7 @@
     "chai": "^3.4.1",
     "chai-as-promised": "^5.1.0",
     "debug": "^2.2.0",
+    "eslint": "^1.10.3",
     "mocha": "^2.3.4",
     "mockgoose": "^5.0.10",
     "nodemon": "^1.8.1"

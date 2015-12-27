@@ -2,7 +2,7 @@ const qs = require('qs');
 
 module.exports = {
     rt: {
-        buildUri: ({ key, limit, page }) =>
+        buildUri: ({ key, limit, page, }) =>
             'http://api.rottentomatoes.com/api/public/v1.0/lists/dvds/new_releases.json?' +
             qs.stringify({
                 country: 'us',
@@ -12,18 +12,18 @@ module.exports = {
             }),
         moviesProp: 'movies',
         converters: {
-            title: ({ title }) => title,
-            year: ({ year }) => year,
-            imdbId: ({ alternate_ids }) => alternate_ids ? 'tt'+alternate_ids.imdb : null,
-            poster: ({ posters }) => ({ small: posters.thumbnail }),
-            desc: ({ synopsis }) => synopsis,
-            runtime: ({ runtime }) => runtime,
+            title: ({ title, }) => title,
+            year: ({ year, }) => year,
+            imdbId: ({ alternate_ids, }) => alternate_ids ? 'tt'+alternate_ids.imdb : null,
+            poster: ({ posters, }) => ({ small: posters.thumbnail, }),
+            desc: ({ synopsis, }) => synopsis,
+            runtime: ({ runtime, }) => runtime,
         },
     },
     tmdb: {
-        buildUri: ({ key }) =>
+        buildUri: ({ key, }) =>
             'http://api.themoviedb.org/3/discover/movie?' +
-            qs.stringify({ api_key: key }),
+            qs.stringify({ api_key: key, }),
         moviesProp: 'results',
     },
     myapi: {
@@ -36,21 +36,21 @@ module.exports = {
                 filter: 3,
                 exactFilter: 1,
                 limit: 1,
-                actors: 1
-            }, imdbId ? { idIMDB: imdbId } : { title, year, })),
+                actors: 1,
+            }, imdbId ? { idIMDB: imdbId, } : { title, year, })),
         movieProp: 'data.movies.0',
         converters: {
-            imdbId: ({ idIMDB }) => idIMDB,
-            votes: ({ votes }) => votes ? Number(votes.replace(',', '')) : 0,
-            rating: ({ rating }) => Number(rating),
-            poster: ({ urlPoster }) => ({ normal: urlPoster }),
-            genres: ({ genres }) => genres.map(genre => genre.toLowerCase()),
-            directors: ({ directors }) =>
-                directors.map(({ name, nameId }) => ({
+            imdbId: ({ idIMDB, }) => idIMDB,
+            votes: ({ votes, }) => votes ? Number(votes.replace(',', '')) : 0,
+            rating: ({ rating, }) => Number(rating),
+            poster: ({ urlPoster, }) => ({ normal: urlPoster, }),
+            genres: ({ genres, }) => genres.map(genre => genre.toLowerCase()),
+            directors: ({ directors, }) =>
+                directors.map(({ name, nameId, }) => ({
                     name,
                     imdbId: nameId,
                 })),
-            actors: ({ actors }) =>
+            actors: ({ actors, }) =>
                 actors.map(({ actorName, urlPhoto, actorId, character, }) => ({
                     name: actorName,
                     photo: urlPhoto,

@@ -13,22 +13,22 @@ const checkIfMovieExists = ({ imdbId, title, year, }) => {
 
 const createMovieIfNotExists = (movie) => {
     if (!movie.imdbId) {
-        console.warn('Movie has no IMDB id, using title/year "' + movie.title + '", ' + movie.year)
+        console.warn('Movie has no IMDB id, using title/year "' + movie.title + '", ' + movie.year);
     }
     checkIfMovieExists(movie)
         .then(doesExist => {
             if (doesExist) {
-                console.warn('Movie exists, skipping: ' + movie.imdbId + ' "' + movie.title + '", ' + movie.year)
+                console.warn('Movie exists, skipping: ' + movie.imdbId + ' "' + movie.title + '", ' + movie.year);
             } else {
                 return fetchDetails(movie)
                     .then(movieDetails => {
                         if (movieDetails)
-                            createMovie(Object.assign({}, movie, movieDetails))
+                            createMovie(Object.assign({}, movie, movieDetails));
                     })
-                    .catch(ex => console.error('Error fetching', movie.title, ex))
+                    .catch(ex => console.error('Error fetching', movie.title, ex));
             }
         })
-        .catch(err => console.error(err))
+        .catch(err => console.error(err));
 };
 
 const createMovie = (data) => {
@@ -40,7 +40,7 @@ const createMovie = (data) => {
 
 Promise.all([
     connectDb(config.db),
-    fetchNewReleases(Number(argv.page))
+    fetchNewReleases(Number(argv.page)),
 ]).then(([, movies]) => {
     movies.map(createMovieIfNotExists);
 });
