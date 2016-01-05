@@ -139,16 +139,19 @@ describe('API', () => {
         [
             {
                 genresExclude: [],
+                query: '',
             },
             {
                 genresExclude: [ 'documentary', ],
+                query: 'blacklist=documentary',
             },
             {
                 genresExclude: [ 'drama', 'documentary', 'comedy', ],
+                query: 'blacklist=drama&blacklist=documentary&blacklist=comedy',
             },
-        ].map(({ genresExclude, }) =>
+        ].map(({ genresExclude, query, }) =>
             it('should ignore ' + genresExclude + ' in movies', () => {
-                const url = apiUrl + '/movies?genresIgnore=' + genresExclude.join(',');
+                const url = apiUrl + '/movies?' + query;
 
                 const json = fetch(url).then(res => res.json());
                 return json.then(movies => {
@@ -170,19 +173,23 @@ describe('API', () => {
         [
             {
                 genresOnly: [],
+                query: '',
             },
             {
                 genresOnly: [ 'drama', ],
+                query: 'whitelist=drama',
             },
             {
-                genresOnly: [ 'comedy', 'Documentary', 'DRAMA', ],
+                genresOnly: [ 'comedy', 'documentary', 'drama', ],
+                query: 'whitelist=comedy&whitelist=documentary&whitelist=drama',
             },
             {
-                genresOnly: [ 'comedy', 'Documentary', 'dramA', 'muSic', ],
+                genresOnly: [ 'comedy', 'documentary', 'drama', 'music', ],
+                query: 'whitelist=comedy&whitelist=documentary&whitelist=drama&whitelist=music',
             },
-        ].map(({ genresOnly, }) =>
+        ].map(({ genresOnly, query, }) =>
             it('should return only ' + genresOnly + ' in movies', () => {
-                const url = apiUrl + '/movies?genresOnly=' + genresOnly.join(',');
+                const url = apiUrl + '/movies?' + query;
 
                 const json = fetch(url).then(res => res.json());
                 return json.then(movies => {
