@@ -28,7 +28,7 @@
     "debug": "^2.2.0",
     "eslint": "^2.1.0",
     "mocha": "^2.3.4",
-    "mockgoose": "^5.0.10",
+    "mockgoose": "^7.3.0",
     "nodemon": "^1.8.1"
   }
 }
